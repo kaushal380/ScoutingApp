@@ -113,7 +113,7 @@ const Home = () => {
                 onPress={() => {handleTaxiNo}}
                 disabled = {isTaxiDisabledNo}
                 >
-                    <Text>good stuff</Text>
+                    <Text>No</Text>
                 </TouchableOpacity>
             </View>
             <View style = {{flexDirection: 'row', alignSelf:'center'}}>
