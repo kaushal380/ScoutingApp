@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View, TouchableOpacity, Modal, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Modal, TextInput, Switch } from 'react-native';
 import React, {useState} from 'react';
 import DataCollect from './DataCollection/DataCollect';
 import {AntDesign, Entypo} from "@expo/vector-icons"
 const Home = () => {
     const [isInputVisible, setIsInputVisible] = useState(false)
-    const [taxi, setTaxi] = useState(false)
+    const [taxi, setTaxi] = useState()
+    const [taxiSwitch, setTaxiSwitch] = useState(false)
     const [Team, setTeam] = useState('')
     const [match, setMatch] = useState('')
     const [AutoUpper, setAutoUpper] = useState(0);
@@ -13,32 +14,18 @@ const Home = () => {
     const [TeleLower, setTeleLower] = useState(0);
     const [hanger, setHanger] = useState("");
     const [outcome, setOutcome] = useState("");
-    const [color, setColor] = useState('white')
     const [isTaxiDisabledYes, setIsTaxiDisabledYes] = useState(false)
     const [isTaxiDisabledNo, setIsTaxiDisabledNo] = useState(false)
 
-    const handleTaxiYes = () => {
-        if(taxi){
-            setTaxi(false)
-            setColor('white')
-        }
-        else{
-            setTaxi(true)
-            setColor('#0782F9')
-        }
-        setIsTaxiDisabledNo(true)
+    const handleTaxi = () => {
+        setTaxi()
+        // alert(state)
+        setTaxi(taxiSwitch)
+        setTaxiSwitch(!taxiSwitch)
+        // alert("taxi: " + taxi)
+        
     }
-    const handleTaxiNo = () => {
-        if(!taxi){
-            setTaxi(false)
-            setColor('#0782F9')
-        }
-        else{
-            setTaxi(true)
-            setColor('white')
-        }
-        setIsTaxiDisabledYes(true)
-    }
+
   return (
     <>
     <View style>
@@ -80,41 +67,17 @@ const Home = () => {
                 ----  Autonomous  ----
             </Text>
 
-            <View style = {{flexDirection: 'row', alignSelf: 'center', justifyContent: 'center',marginTop: 30}}>
-                <Text style = {{fontSize: 35}}>Taxi: </Text>
+            <View style = {{flexDirection: 'row', alignSelf: 'flex-start', justifyContent: 'center',marginTop: 30, marginLeft: 45}}>
+                <Text style = {{fontSize: 25}}>Taxi: </Text>
 
-                <TouchableOpacity
-                style = {{
-                    backgroundColor: color, 
-                    justifyContent: 'center', 
-                    alignItems: 'center', 
-                    height: 30, 
-                    width: 60, 
-                    borderRadius: 5,
-                    marginTop: 8, 
-                    marginLeft: 10, 
-                }}
-                onPress={() => {handleTaxiYes}}
-                disabled = {isTaxiDisabledYes}
-                >
-                    <Text>Yes</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                style = {{
-                    backgroundColor: color, 
-                    justifyContent: 'center', 
-                    alignItems: 'center', 
-                    height: 30, 
-                    width: 60, 
-                    borderRadius: 5,
-                    marginTop: 8, 
-                    marginLeft: 10, 
-                }}
-                onPress={() => {handleTaxiNo}}
-                disabled = {isTaxiDisabledNo}
-                >
-                    <Text>dataDisplay</Text>
-                </TouchableOpacity>
+                <Switch
+                    style = {{position: 'absolute', bottom: -11, left: 50,}}
+                    trackColor={{ false: "grey", true: "grey" }}//#767577
+                    thumbColor={taxi ? "black" : "black"}//#f5dd4b
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={handleTaxi}
+                    value={taxiSwitch}
+                />
             </View>
             <View style = {{flexDirection: 'row', alignSelf:'center'}}>
 
