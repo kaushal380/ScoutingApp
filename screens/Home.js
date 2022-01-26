@@ -22,8 +22,23 @@ const Home = () => {
         // alert(state)
         setTaxi(taxiSwitch)
         setTaxiSwitch(!taxiSwitch)
-        // alert("taxi: " + taxi)
-        
+        alert("taxi: " + taxi)    
+    }
+    const handleCargoLower = (type) => {
+        let setNum = autoLower;
+        if(type === "plus"){
+            setNum++;
+        }
+        else{
+            if(setNum>0){
+                setNum--;
+            }
+            else{
+                setAutoLower(setNum)
+                return;
+            }
+        }
+        setAutoLower(setNum)
     }
 
   return (
@@ -79,6 +94,20 @@ const Home = () => {
                     value={taxiSwitch}
                 />
             </View>
+
+            <View style = {{flexDirection: 'row', alignSelf: 'flex-start', justifyContent: 'center',marginTop: 30, marginLeft: 45}}>
+
+                <View>
+                    <Text style = {{fontSize: 25}}>CargoLower: </Text>
+                </View>
+
+                <AntDesign name='minus' size={35} color={'grey'} style = {{marginTop: 0, marginRight: 5}} onPress={() => handleCargoLower("other")}/>
+                <TouchableOpacity style = {{backgroundColor: 'white', borderRadius: 4, width: 50, justifyContent: 'center', alignItems: 'center'}}>
+                    <Text>{autoLower}</Text>
+                </TouchableOpacity>
+                <AntDesign name='plus' size={35} color={'grey'} style = {{marginTop: 0, marginLeft: 5}} onPress={() => handleCargoLower('plus')}/>
+            </View>
+
             <View style = {{flexDirection: 'row', alignSelf:'center'}}>
 
                 <AntDesign name='close' size={45} color={'#0782F9'} style = {{marginRight: 60}} onPress={() => {setIsInputVisible(false)}}/> 
