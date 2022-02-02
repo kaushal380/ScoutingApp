@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, Modal, TextInput, Switch } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Modal, TextInput, Switch, Pressable } from 'react-native';
 import React, {useState} from 'react';
 import DataCollect from './DataCollection/DataCollect';
 import {AntDesign, Entypo} from "@expo/vector-icons"
@@ -24,6 +24,11 @@ const Home = () => {
         setTaxiSwitch(!taxiSwitch)
         // alert("taxi: " + taxi)
         
+    }
+
+    const autoCargolowerincrement = () => {
+        let autolower = autoLower + 1;
+        setAutoLower(autolower)
     }
 
   return (
