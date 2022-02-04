@@ -20,13 +20,12 @@ export class Home extends React.Component {
   }
 
   handleClick() {
-    this.setState({ dataCollect: true });
+    this.props.onClick(true);
   }
 
   render() {
     return (
       <View style={styles.body}>
-          <DataCollection />
         <Image
           style={styles.logo}
           source={{
@@ -47,7 +46,7 @@ export class Home extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   body: {
     display: "flex",
     justifyContent: "center",
