@@ -1,8 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { collectData } from "./screens/DataCollection/DataCollect";
-import { Home } from "./screens/HOMEe";
+import { Home } from "./screens/Home";
 
 export default class App extends React.Component {
   constructor(props) {

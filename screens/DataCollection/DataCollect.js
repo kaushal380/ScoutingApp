@@ -1,32 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, ScrollView } from 'react-native';
-import React from 'react';
-import {AntDesign, Entypo} from "@expo/vector-icons"
+import React from "react";
+import { Text } from "react-native";
 
-const DataCollect = ({
-    isInputVisible, setIsInputVisible, 
-    taxi, setTaxi, 
-    AutoUpper, setAutoUpper, 
-    autoLower, setAutoLower, 
-    TeleUpper, setTeleUpper, 
-    TeleLower, setTeleLower, 
-    hanger, setHanger, 
-    outcome, setOutcome,
-}) => {
+export class DataCollection extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <>
-
-    </>
-  );
-};
-
-export function collectData(props) {
-  return (
-    <Text>Data Collection Screen</Text>
-  )
+  render() {
+    return <Text>Data Collection Page</Text>;
+  }
 }
-
-
-const styles = StyleSheet.create({
-
-});
