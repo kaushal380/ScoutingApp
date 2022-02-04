@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, Modal, TextInput, Switch } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Modal, TextInput, Switch, Pressable } from 'react-native';
 import React, {useState} from 'react';
 import DataCollect from './DataCollection/DataCollect';
 import {AntDesign, Entypo} from "@expo/vector-icons"
@@ -59,11 +59,12 @@ const Home = () => {
 
       <Modal
       visible = {isInputVisible}
+      animationType='slide'
       >
        <>
         <View style = {{backgroundColor: '#dedbd5'}}>
-            <Text style = {{fontSize: 40, alignSelf: 'center'}}>data collection</Text>
-            <View style = {{flexDirection: 'row', alignSelf: 'center', marginTop: 50}}>
+            <Text style={styles.title}>Data Collection</Text>
+            <View style = {styles.identityContainer}>
             <TextInput
                     placeholder = "Team #"
                     value = {Team}
@@ -82,11 +83,11 @@ const Home = () => {
                 ----  Autonomous  ----
             </Text>
 
-            <View style = {{flexDirection: 'row', alignSelf: 'flex-start', justifyContent: 'center',marginTop: 30, marginLeft: 45}}>
+            <View style = {{flexDirection: 'row', alignSelf: 'flex-start', justifyContent: 'center', marginTop: 30, marginLeft: 45}}>
                 <Text style = {{fontSize: 25}}>Taxi: </Text>
 
                 <Switch
-                    style = {{position: 'absolute', bottom: -11, left: 50,}}
+                    style = {{position: 'absolute', bottom: -2, left: 69,}}
                     trackColor={{ false: "grey", true: "grey" }}//#767577
                     thumbColor={taxi ? "black" : "black"}//#f5dd4b
                     ios_backgroundColor="#3e3e3e"
@@ -108,9 +109,8 @@ const Home = () => {
                 <AntDesign name='plus' size={35} color={'grey'} style = {{marginTop: 0, marginLeft: 5}} onPress={() => handleCargoLower('plus')}/>
             </View>
 
-            <View style = {{flexDirection: 'row', alignSelf:'center'}}>
-
-                <AntDesign name='close' size={45} color={'#0782F9'} style = {{marginRight: 60}} onPress={() => {setIsInputVisible(false)}}/> 
+            <View style = {{flexDirection: 'row', alignSelf:'center', marginTop: 20}}>
+                <Pressable size={45} backgroundColor={'red'} borderRadius={50} width={100}onLongPress={() => {setIsInputVisible(false)}}><Text>Exit</Text></Pressable>
                 <AntDesign name='check' size={45} color={'#0782F9'} style = {{marginLeft: 60}}/> 
             </View>
         </View>
@@ -124,6 +124,17 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
+    title: {
+        fontSize: 40, 
+        alignSelf: 'center', 
+        marginTop: 50
+    },
+
+    identityContainer: {
+        flexDirection: 'row', 
+        alignSelf: 'center', marginTop: 50
+    },
+
     container: {
       flex: 1,
       backgroundColor: '#fff',

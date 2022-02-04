@@ -20,7 +20,12 @@ const DataCollect = ({
   );
 };
 
-export default DataCollect;
+export function collectData(props) {
+  return (
+    <Text>Data Collection Screen</Text>
+  )
+}
+
 
 const styles = StyleSheet.create({
 
