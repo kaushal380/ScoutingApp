@@ -9,8 +9,7 @@ import {
   Pressable,
   Image,
 } from "react-native";
-import React, { useState } from "react";
-import { DataCollection } from "./DataCollection/DataCollect";
+import React from "react";
 
 export class Home extends React.Component {
   constructor(props) {
