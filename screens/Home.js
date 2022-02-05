@@ -10,6 +10,7 @@ import {
   Image,
 } from "react-native";
 import React from "react";
+import { styles } from "../App";
 
 export class Home extends React.Component {
   constructor(props) {
@@ -44,30 +45,3 @@ export class Home extends React.Component {
     );
   }
 }
-
-export const styles = StyleSheet.create({
-  body: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  logo: {
-    width: 200,
-    height: 200,
-  },
-
-  TitleStyle: {
-    fontSize: 40,
-    alignSelf: "center",
-  },
-
-  ButtonsContainer: {
-    backgroundColor: "#0782F9",
-    width: 300,
-    justifyContent: "center",
-    alignItems: "center",
-    height: 100,
-    borderRadius: 10,
-  },
-});

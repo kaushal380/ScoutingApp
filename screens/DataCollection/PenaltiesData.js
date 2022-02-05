@@ -5,7 +5,7 @@ export class PenaltiesData extends React.Component {
     constructor(props) {
         super(props);
     }
-    
+
     render() {
         return (
             <View>

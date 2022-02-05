@@ -5,7 +5,7 @@ export class OverallStratData extends React.Component {
     constructor(props) {
         super(props);
     }
-    
+
     render() {
         return (
             <View>
