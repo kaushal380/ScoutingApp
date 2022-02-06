@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TouchableOpacity, TextInput } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity, TextInput, View, ScrollView } from "react-native";
 import { styles } from "../App";
 import { CargoData } from "./DataCollection/CargoData";
 import { ClimbData } from "./DataCollection/ClimbData";
@@ -20,53 +20,62 @@ export class DataCollection extends React.Component {
   }
 
   handleInputChange = e => {
-    const {value} = e.target;
-    this.setState({teamNum: value})
+    const { value } = e.target;
+    this.setState({ teamNum: value })
   }
 
   render() {
+
     return (
-      <>
-        <Text style={styles.TitleStyle}>Data Collection Page</Text>
-        {/* Team Number Input */}
-        {console.log(this.state.teamNum)}
-        <TextInput 
-          value={this.state.teamNum}
-          onChange={this.handleInputChange}
-          placeholder="Team Number"
-          keyboardType="number-pad"
-          maxLength={4}
-          textAlign="center"
-        /> 
-        {/* Match Number Input */}
-        <TextInput 
-          value={this.state.matchNum}
-          placeholder="Match Number"
-          keyboardType="number-pad"
-          maxLength={4}
-          textAlign="center"
-        /> 
+      <SafeAreaView style={styles.container}>
+        <ScrollView>
+          <Text style={styles.TitleStyle}>Data Collection Page</Text>
+          {/* Team Number Input */}
+          <View style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
+            <TextInput
+              value={this.state.teamNum}
+              onChange={this.handleInputChange}
+              placeholder="Team Number"
+              keyboardType="number-pad"
+              maxLength={4}
+              textAlign="center"
+              style={styles.identityInputs}
+            />
+            {/* Match Number Input */}
+            <TextInput
+              value={this.state.matchNum}
+              placeholder="Match Number"
+              keyboardType="number-pad"
+              maxLength={4}
+              textAlign="center"
+              style={styles.identityInputs}
+            />
+          </View>
 
-        <Text>----  Autonomous  ----</Text>
+          {/* Autonomous Data Collection */}
+          <Text style={{ marginTop: 20, marginBottom: 20, fontSize: 20 }}>----  Autonomous  ----</Text>
 
-        <CargoData />
-        <ClimbData />
-        <DriverData />
-        <OverallStratData />
-        <PenaltiesData />
+          <CargoData />
+          <ClimbData />
+          <DriverData />
+          <OverallStratData />
+          <PenaltiesData />
 
-        <Text>----  Teleop  ----</Text>
+          {/* Teleop Data Collection */}
+          <Text style={{ marginTop: 20, marginBottom: 20, fontSize: 20 }}>----  Teleop  ----</Text>
 
-        <CargoData />
-        <ClimbData />
-        <DriverData />
-        <OverallStratData />
-        <PenaltiesData />
+          <CargoData />
+          <ClimbData />
+          <DriverData />
+          <OverallStratData />
+          <PenaltiesData />
 
-        <TouchableOpacity onPress={this.handleClick} style={styles.ButtonsContainer}>
-          <Text style={styles.TitleStyle}>Exit</Text>
-        </TouchableOpacity>
-      </>
+          {/* Exit Button */}
+          <TouchableOpacity onPress={this.handleClick} style={styles.ButtonsContainer}>
+            <Text style={styles.TitleStyle}>Exit</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }

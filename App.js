@@ -62,13 +62,39 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     height: 100,
     borderRadius: 10,
+    marginTop: 100
   },
 
   addButton: {
-    backgroundColor: "black",
+    backgroundColor: "#194D33",
     borderRadius: 5,
     width: 80, height: 30,
     marginRight: 10, marginTop: 10,
     justifyContent: 'center', alignItems: 'center'
-  }
+  },
+
+  subtractButton: {
+    backgroundColor: "#F44336",
+    borderRadius: 5,
+    width: 80, height: 30,
+    marginRight: 10, marginTop: 10,
+    justifyContent: 'center', alignItems: 'center'
+  },
+
+  cargoButtons: {
+    display: "flex",
+    flexDirection: "row"
+  },
+
+  identityInputs: {
+    backgroundColor: "#ABB8C3",
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    borderRadius: 10,
+    marginTop: 5,
+    width: 150,
+    marginRight: 30,
+  },
+
+  
 });
