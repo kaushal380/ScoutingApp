@@ -46,7 +46,7 @@ export class Home extends React.Component {
     );
   }
 }
-=======
+
 import { StyleSheet, Text, View, TouchableOpacity, Modal, TextInput, Switch, ScrollView } from 'react-native';
 import React, {useState} from 'react';
 import DataCollect from './DataCollection/DataCollect';
