@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, TouchableOpacity, Modal, TextInput, Switch, Scr
 import React, {useState} from 'react';
 import DataCollect from './DataCollection/DataCollect';
 import {AntDesign, Entypo} from "@expo/vector-icons"
+import { Slider } from 'react-native-elements';
+
 const Home = () => {
     const [isInputVisible, setIsInputVisible] = useState(false)
     const [taxi, setTaxi] = useState(false)
@@ -20,6 +22,7 @@ const Home = () => {
     const [treversalColor, setTreversalColor] = useState("white")
     const [noneColor, setNoneColor] = useState("white")
 
+    const [Drivetrainranking, setDrivetrainranking] = useState();
     const [outcome, setOutcome] = useState("");
     const [isTaxiDisabledYes, setIsTaxiDisabledYes] = useState(false)
     const [isTaxiDisabledNo, setIsTaxiDisabledNo] = useState(false)
@@ -323,9 +326,22 @@ const Home = () => {
                     </TouchableOpacity>
 
                 </View>
+            <View style = {{marginTop: 20, marginLeft: 45}}> 
+            <Text style = {{fontSize: 25}}>Drivetrainranking : {Drivetrainranking}</Text>
+            <Slider
+            
+            value = {Drivetrainranking}
+            onValueChange = {(num) => {setDrivetrainranking(num)} }
+            minimumValue = {1}
+            maximumValue ={10}
+            step = {1}
+            onSlidingComplete = {(num) => {setDrivetrainranking(num)} }
+            allowTouchTrack
+            trackStyle = {{height : 10}}
+            thumbStyle = {{height : 10, width : 20, backgroundColor : "red"}}
+            />
             </View>
-
-
+            </View>
 
             <View style = {{flexDirection: 'row', alignSelf:'center', marginTop: 30}}>
 
@@ -385,9 +401,5 @@ const styles = StyleSheet.create({
         marginTop: 5,
         width: 100
     },
-<<<<<<< HEAD
-  });
-=======
 
   });
->>>>>>> e015a46ae5dbbac6d07a36da7be0fb7f0d7b80c9
