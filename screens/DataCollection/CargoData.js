@@ -29,9 +29,8 @@ export class CargoData extends React.Component {
   }
 
   render() {
-    if (this.state.cargoLower < 0) {
-      this.setState({ cargoLower: 0 })
-    }
+    {this.state.cargoLower < 0 ? this.setState({cargoLower: 0}) : null}
+    {this.state.cargoUpper < 0 ? this.setState({ cargoUpper: 0}) : null}
     return (
       <View>
         <View>
