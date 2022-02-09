@@ -6,7 +6,7 @@ import { Slider } from 'react-native-elements';
 
 const Home = () => {
     const [isInputVisible, setIsInputVisible] = useState(false)
-    const [taxi, setTaxi] = useState(false)
+    const [taxi, setTaxi] = useState(true)
     const [taxiSwitch, setTaxiSwitch] = useState(false)
     const [Team, setTeam] = useState('')
     const [match, setMatch] = useState('')
@@ -23,14 +23,14 @@ const Home = () => {
     const [noneColor, setNoneColor] = useState("white")
 
     const [Drivetrainranking, setDrivetrainranking] = useState();
+    const [DefenseRanking, setDefenceRanking] = useState();
     const [outcome, setOutcome] = useState("");
-    const [isTaxiDisabledYes, setIsTaxiDisabledYes] = useState(false)
-    const [isTaxiDisabledNo, setIsTaxiDisabledNo] = useState(false)
 
     const handleTaxi = () => {
         // alert(state)
         setTaxi(taxiSwitch)
         setTaxiSwitch(!taxiSwitch)
+        
         alert("taxi: " + taxi)    
     }
     const handleCargoLower = (type) => {
@@ -266,7 +266,7 @@ const Home = () => {
                 <TouchableOpacity 
                         style = {{backgroundColor: noneColor, 
                         borderRadius: 5, 
-                        width: 60, height: 30, 
+                        width: 50, height: 30, 
                         marginRight: 10, marginTop: 10,
                         justifyContent: 'center', alignItems: 'center'}}
                         
@@ -279,7 +279,7 @@ const Home = () => {
                     <TouchableOpacity 
                         style = {{backgroundColor: lowColor, 
                         borderRadius: 5, 
-                        width: 60, height: 30, 
+                        width: 50, height: 30, 
                         marginRight: 10, marginTop: 10,
                         justifyContent: 'center', alignItems: 'center'}}
                         
@@ -291,7 +291,7 @@ const Home = () => {
                     <TouchableOpacity 
                         style = {{backgroundColor: midColor, 
                         borderRadius: 5, 
-                        width: 60, height: 30, 
+                        width: 50, height: 30, 
                         marginRight: 10, marginTop: 10,
                         justifyContent: 'center', alignItems: 'center'}}
                     
@@ -304,7 +304,7 @@ const Home = () => {
                     <TouchableOpacity 
                         style = {{backgroundColor: highColor, 
                         borderRadius: 5, 
-                        width: 60, height: 30, 
+                        width: 50, height: 30, 
                         marginRight: 10, marginTop: 10,
                         justifyContent: 'center', alignItems: 'center'}}
                     
@@ -326,23 +326,46 @@ const Home = () => {
                     </TouchableOpacity>
 
                 </View>
-            <View style = {{marginTop: 20, marginLeft: 45}}> 
-            <Text style = {{fontSize: 25}}>Drivetrainranking : {Drivetrainranking}</Text>
+            <Text style = {{alignSelf: 'center', marginTop: 30, fontSize: 30}}>
+                ---- Drivetrain ----
+            </Text>
+            <View style = {{marginTop: 40, alignContent: 'center', marginRight: 40}}> 
+            <Text style = {{fontSize: 25}}>Drivetrain ranking : {Drivetrainranking}</Text>
             <Slider
-            
-            value = {Drivetrainranking}
-            onValueChange = {(num) => {setDrivetrainranking(num)} }
-            minimumValue = {1}
-            maximumValue ={10}
-            step = {1}
-            onSlidingComplete = {(num) => {setDrivetrainranking(num)} }
-            allowTouchTrack
-            trackStyle = {{height : 10}}
-            thumbStyle = {{height : 10, width : 20, backgroundColor : "red"}}
+                value = {Drivetrainranking}
+                onValueChange = {(num) => {setDrivetrainranking(num)} }
+                minimumValue = {1}
+                maximumValue ={10}
+                step = {1}
+                onSlidingComplete = {(num) => {setDrivetrainranking(num)} }
+                allowTouchTrack
+                trackStyle = {{height : 10}}
+                thumbStyle = {{height : 20, width : 20, backgroundColor : "grey"}}
+            />
+            </View>
+            <View style = {{marginTop: 40, alignContent: 'center', marginRight: 40}}> 
+            <Text style = {{fontSize: 25}}>Defense ranking : {DefenseRanking}</Text>
+            <Slider
+                value = {DefenseRanking}
+                onValueChange = {(num) => {setDefenceRanking(num)} }
+                minimumValue = {1}
+                maximumValue ={10}
+                step = {1}
+                onSlidingComplete = {(num) => {setDefenceRanking(num)} }
+                allowTouchTrack
+                trackStyle = {{height : 10}}
+                thumbStyle = {{height : 20, width : 20, backgroundColor : "grey"}}
             />
             </View>
             </View>
+            
+            <View style = {{flexDirection: 'row', alignSelf: 'flex-start', justifyContent: 'center',marginTop: 30, marginLeft: 45}}>
+                <Text style = {{alignSelf: 'center', marginTop: 30, fontSize: 30, marginLeft: 30}}>
+                    ---- Penalities ----
+                </Text>
 
+
+            </View>
             <View style = {{flexDirection: 'row', alignSelf:'center', marginTop: 30}}>
 
                 <AntDesign name='close' size={45} color={'#0782F9'} style = {{marginRight: 60}} onPress={() => {setIsInputVisible(false)}}/> 
